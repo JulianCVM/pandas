@@ -1,6 +1,6 @@
-# Proyecto de Análisis de Datos con Pandas
+# Análisis de Criptomonedas con Pandas
 
-Este proyecto es una introducción práctica al análisis de datos utilizando la biblioteca Pandas de Python. El proyecto incluye ejemplos básicos y avanzados de manipulación y análisis de datos.
+Este proyecto proporciona herramientas para analizar datos de criptomonedas, generando datos simulados y realizando análisis técnico y visualización.
 
 ## Estructura del Proyecto
 
@@ -8,14 +8,13 @@ Este proyecto es una introducción práctica al análisis de datos utilizando la
 .
 ├── README.md
 ├── requirements.txt
-├── data/
-│   └── sample_data.csv
+├── main.py              # Script principal
 ├── src/
 │   ├── __init__.py
-│   ├── data_analysis.py
-│   └── data_visualization.py
-└── notebooks/
-    └── analysis_examples.ipynb
+│   └── crypto_analysis.py    # Módulo de análisis de criptomonedas
+└── reports/             # Directorio para reportes generados
+    ├── btc/            # Reportes de Bitcoin
+    └── eth/            # Reportes de Ethereum
 ```
 
 ## Requisitos
@@ -39,61 +38,114 @@ pip install -r requirements.txt
 
 ## Uso
 
-El proyecto está organizado en varios componentes:
+### Ejecución Rápida
 
-### 1. Análisis de Datos Básico (`src/data_analysis.py`)
-Este módulo contiene funciones para:
-- Carga y limpieza de datos
-- Análisis estadístico básico
-- Manipulación de DataFrames
-- Filtrado y selección de datos
+Para ejecutar el análisis completo:
 
-### 2. Visualización de Datos (`src/data_visualization.py`)
-Este módulo incluye:
-- Gráficos básicos con matplotlib
-- Visualizaciones avanzadas con seaborn
-- Creación de dashboards simples
-
-### 3. Notebooks de Ejemplo (`notebooks/analysis_examples.ipynb`)
-Contiene ejemplos prácticos y tutoriales interactivos.
-
-## Ejemplos de Uso
-
-### Carga de Datos
-```python
-import pandas as pd
-from src.data_analysis import load_and_clean_data
-
-# Cargar datos
-df = load_and_clean_data('data/sample_data.csv')
+```bash
+python main.py
 ```
 
-### Análisis Básico
-```python
-# Estadísticas descriptivas
-print(df.describe())
+Esto generará:
+- Datos simulados para Bitcoin y Ethereum
+- Métricas clave para cada criptomoneda
+- Gráficos y visualizaciones
+- Reportes completos en el directorio `reports`
 
-# Análisis de correlación
-print(df.corr())
+### Uso del Módulo de Análisis
+
+```python
+from src.crypto_analysis import CryptoAnalyzer
+
+# Crear analizador para una criptomoneda
+analyzer = CryptoAnalyzer(symbol="BTC")
+
+# Generar datos simulados
+analyzer.generate_mock_data(days=365)
+
+# Calcular métricas
+metrics = analyzer.calculate_metrics()
+print(metrics)
+
+# Generar gráficos
+analyzer.plot_price_history()
+analyzer.plot_volume()
+analyzer.plot_price_distribution()
+analyzer.plot_market_cap()
+
+# Generar reporte completo
+analyzer.generate_report()
 ```
 
-## Características Principales
+## Características
 
-1. **Manejo de Datos**
-   - Carga de diferentes formatos (CSV, Excel, JSON)
-   - Limpieza y preprocesamiento
-   - Transformación de datos
+1. **Generación de Datos**
+   - Datos simulados realistas
+   - Precios con tendencia y volatilidad
+   - Volumen de trading
+   - Capitalización de mercado
 
-2. **Análisis Estadístico**
-   - Estadísticas descriptivas
-   - Análisis de correlación
-   - Agrupación y agregación
+2. **Análisis Técnico**
+   - Precio actual, máximo y mínimo
+   - Volumen promedio
+   - Volatilidad
+   - Retorno total
+   - Capitalización de mercado
 
-3. **Visualización**
-   - Gráficos de barras y líneas
-   - Diagramas de dispersión
-   - Heatmaps
-   - Gráficos de distribución
+3. **Visualizaciones**
+   - Historial de precios
+   - Volumen de trading
+   - Distribución de precios
+   - Capitalización de mercado
+
+4. **Reportes**
+   - Generación automática de reportes
+   - Gráficos guardados como imágenes
+   - Métricas en archivo de texto
+
+## Ejemplo de Salida
+
+El programa generará:
+
+1. **Métricas en Consola**:
+```
+Métricas de Bitcoin:
+precio_actual: 30,000.00
+precio_maximo: 35,000.00
+precio_minimo: 25,000.00
+volumen_promedio: 1,000.00
+volatilidad: 500.00
+retorno_total: 50.00
+market_cap_actual: 600,000,000,000.00
+```
+
+2. **Gráficos**:
+- `reports/price_history.png`: Historial de precios
+- `reports/volume.png`: Volumen de trading
+- `reports/price_distribution.png`: Distribución de precios
+- `reports/market_cap.png`: Capitalización de mercado
+
+3. **Reporte de Métricas**:
+- `reports/metrics.txt`: Archivo con todas las métricas calculadas
+
+## Personalización
+
+Puedes personalizar el análisis modificando:
+
+1. **Período de Análisis**:
+```python
+analyzer.generate_mock_data(days=180)  # 6 meses
+```
+
+2. **Criptomoneda**:
+```python
+analyzer = CryptoAnalyzer(symbol="ETH")  # Ethereum
+```
+
+3. **Directorio de Reportes**:
+```python
+analyzer.generate_report('reports/custom')
+```
 
 ## Contribuir
 
