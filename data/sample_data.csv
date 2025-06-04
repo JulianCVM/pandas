@@ -1,0 +1,16 @@
+fecha,producto,categoria,ventas,precio,region
+2024-01-01,Laptop,Electrónicos,5,1200,Norte
+2024-01-01,Smartphone,Electrónicos,8,800,Norte
+2024-01-01,Tablet,Electrónicos,3,500,Norte
+2024-01-02,Laptop,Electrónicos,7,1200,Sur
+2024-01-02,Smartphone,Electrónicos,12,800,Sur
+2024-01-02,Tablet,Electrónicos,4,500,Sur
+2024-01-03,Laptop,Electrónicos,6,1200,Este
+2024-01-03,Smartphone,Electrónicos,9,800,Este
+2024-01-03,Tablet,Electrónicos,5,500,Este
+2024-01-04,Laptop,Electrónicos,8,1200,Oeste
+2024-01-04,Smartphone,Electrónicos,15,800,Oeste
+2024-01-04,Tablet,Electrónicos,6,500,Oeste
+2024-01-05,Laptop,Electrónicos,4,1200,Norte
+2024-01-05,Smartphone,Electrónicos,10,800,Norte
+2024-01-05,Tablet,Electrónicos,7,500,Norte 
